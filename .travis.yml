@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t miloofcroton/react-test -f /client/Dockerfile.dev ./client
+  - docker build -t miloofcroton/react-test -f ./client/Dockerfile.dev ./client
   # easily, add more stuff to prepare for testing
 
 script:
