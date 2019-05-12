@@ -21,5 +21,15 @@ after_success:
   - docker push miloofcroton/full-stack-docker-nginx
   - docker push miloofcroton/full-stack-docker-worker
 
-
-
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "full-stack-docker"
+  env: "FullStackDocker-env-1"
+  bucket_name: "elasticbeanstalk-us-west-2-484708856895"
+  bucket_path: "docker-test"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
